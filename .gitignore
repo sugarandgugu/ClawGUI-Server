@@ -1,0 +1,27 @@
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Old README backup
+README_od.md
+
+# Evaluation scripts (contains hardcoded paths)
+start.sh
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs
+traj_logs/
+*.log
