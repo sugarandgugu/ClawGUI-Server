@@ -322,6 +322,10 @@ OpenGUI-Server/
 └── resources/              # Application resource files
 ```
 
+## Server Implementation
+
+To understand how the server works under the hood, check out [`server.py`](https://github.com/Tongyi-MAI/MobileWorld/blob/main/src/mobile_world/core/server.py), which encapsulates core commands for screenshots, action execution, task management, and more.
+
 ## Acknowledgements
 
 This project is built upon [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld) ([Paper](https://arxiv.org/abs/2512.19432)).

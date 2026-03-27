@@ -322,6 +322,10 @@ OpenGUI-Server/
 └── resources/              # 应用资源文件
 ```
 
+## Server 实现
+
+如果想了解 Server 的具体实现细节，可以查看 [`server.py`](https://github.com/Tongyi-MAI/MobileWorld/blob/main/src/mobile_world/core/server.py)，其中封装了截图、操作执行、任务管理等核心命令。
+
 ## 致谢
 
 本项目基于 [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld)（[Paper](https://arxiv.org/abs/2512.19432)）构建。
