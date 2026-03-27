@@ -1,36 +1,30 @@
 #!/bin/bash
-# Install vLLM
-# ps -u tangfei -o pid,cmd | grep -i vllm
-# Source conda configuration
-source /home/tangfei/anaconda3/etc/profile.d/conda.sh
+# Start vLLM API server for MAI-UI
+# Requirements: vllm>=0.11.0, transformers>=4.57.0
 
-conda activate verl-agent
-# pip install vllm  # vllm>=0.11.0 and transformers>=4.57.0
+MODEL_PATH="Tongyi-MAI/MAI-UI-2B"
+MODEL_NAME="MAI-UI-2B"
+PORT=8001
+GPU_IDS="0,1"
+TP_SIZE=2
+GPU_MEM_UTIL=0.60
+MAX_MODEL_LEN=25600
 
-# Get script directory
+# Log
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="${SCRIPT_DIR}/log"
 mkdir -p "${LOG_DIR}"
-LOG_FILE="${LOG_DIR}/maiui_serve_2B_gigpo_exp1_step15.log"
-MODEL_PATH="/home/shenyl/hf/model/Tongyi-MAI/MAI-UI-2B"
-# MODEL_PATH="/home/tangfei/online_rl_exps/checkpoints/online_rl_mobile_world/grpo_4_2_3_20/global_step_20/hf"
-# /home/tangfei/online_rl_exps/maiui2b_exp6_1080p_wo_step_reward/global_step_5/hf
-# MODEL_PATH="/home/tangfei/online_rl_exps/maiui2b_exp6_1080p_wo_step_reward/global_step_20/hf"
-# MODEL_PATH="/home/tangfei/online_rl_exps/gigpo_maiui2b_exp1/global_step_15/hf"
-# Start vLLM API server (replace MODEL_PATH with your local model path or HuggingFace model ID)
-CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=2,3 nohup python -m vllm.entrypoints.openai.api_server \
-    --model ${MODEL_PATH} \
-    --served-model-name MAI-UI-2B \
+LOG_FILE="${LOG_DIR}/maiui_serve.log"
+
+CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPU_IDS \
+nohup python -m vllm.entrypoints.openai.api_server \
+    --model $MODEL_PATH \
+    --served-model-name $MODEL_NAME \
     --host 0.0.0.0 \
-    --gpu_memory_utilization 0.60 \
-    --port 8001 \
-    --tensor-parallel-size 2 \
-    --max-model-len 25600 \
+    --port $PORT \
+    --gpu_memory_utilization $GPU_MEM_UTIL \
+    --tensor-parallel-size $TP_SIZE \
+    --max-model-len $MAX_MODEL_LEN \
     --trust-remote-code > "${LOG_FILE}" 2>&1 &
 
-echo "vLLM server started in background, PID: $!"
-echo "Log file: ${LOG_FILE}"
-
-# 8102 step 20
-# 8101 step 15
-
+echo "vLLM server started, PID: $!, log: ${LOG_FILE}"
