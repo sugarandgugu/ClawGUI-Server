@@ -1,12 +1,12 @@
-# OpenGUI-Server
+# ClawGUI-Server
 
 English | [中文](README.md)
 
-A virtual Android container service built on [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld), providing online RL training environments for [OpenGUI-RL](../OpenGUI/opengui-rl) along with various evaluation scripts.
+A virtual Android container service built on [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld), providing online RL training environments for [ClawGUI-RL](https://github.com/ZJU-REAL/ClawGUI/tree/master/clawgui-rl) along with various evaluation scripts.
 
 ## Overview
 
-OpenGUI-Server provides reproducible interaction environments for GUI Agents through Docker-containerized Android emulators. Key features:
+ClawGUI-Server provides reproducible interaction environments for GUI Agents through Docker-containerized Android emulators. Key features:
 
 - **Online RL Training**: Virtual container environments for online reinforcement learning
 - **GUI-Only Evaluation**: Test GUI tasks excluding Google services
