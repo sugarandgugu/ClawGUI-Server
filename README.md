@@ -1,12 +1,12 @@
-# OpenGUI-Server
+# ClawGUI-Server
 
 [English](README_EN.md) | 中文
 
-基于 [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld) 构建的虚拟 Android 容器服务，为 [OpenGUI-RL](../OpenGUI/opengui-rl) 提供 online RL 训练环境，同时提供多种评估脚本。
+基于 [MobileWorld](https://github.com/Tongyi-MAI/MobileWorld) 构建的虚拟 Android 容器服务，为 [ClawGUI-RL](https://github.com/ZJU-REAL/ClawGUI/tree/master/clawgui-rl) 提供 online RL 训练环境，同时提供多种评估脚本。
 
 ## Overview
 
-OpenGUI-Server 通过 Docker 容器化的 Android 模拟器，为 GUI Agent 提供可复现的交互环境。主要功能：
+ClawGUI-Server 通过 Docker 容器化的 Android 模拟器，为 GUI Agent 提供可复现的交互环境。主要功能：
 
 - **Online RL 训练**：为 OpenGUI-RL 提供虚拟容器环境进行在线强化学习训练
 - **GUI-Only 评估**：测试不含 Google 服务的 GUI 任务
