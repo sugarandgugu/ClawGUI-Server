@@ -309,7 +309,7 @@ This script tests device initialization (`/init`), health check (`/health`), and
 ## Project Structure
 
 ```
-OpenGUI-Server/
+ClawGUI-Server/
 ├── start.sh                # Evaluation launch script
 ├── scripts/                # Model deployment & evaluation scripts
 ├── docker/                 # Docker image build & emulator launch
