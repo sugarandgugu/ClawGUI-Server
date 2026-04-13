@@ -309,7 +309,7 @@ python test_true_device.py
 ## 项目结构
 
 ```
-OpenGUI-Server/
+ClawGUI-Server/
 ├── start.sh                # 评测启动脚本
 ├── scripts/                # 模型部署 & 评测脚本
 ├── docker/                 # Docker 镜像构建 & 模拟器启动
